@@ -7,11 +7,13 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import com.br.uati.models.User;
 import com.br.uati.repositories.UserRepository;
@@ -39,6 +41,11 @@ public class UserServiceTest {
 	
 	private User user;
 
+	@Before
+	public void init() {
+		MockitoAnnotations.initMocks(this);
+	}
+	
 	@Before
 	public void setUp() throws Exception {
 		user = new User();
@@ -80,7 +87,7 @@ public class UserServiceTest {
 
 		listaUser.add(user);
 
-		when(userRepositoryMock.findById(ID)).thenAnswer(x -> user);
+		when(userRepositoryMock.findById(ID)).thenReturn(Optional.of(user));
 
 		User actualProducts = userService.findById(ID);
 
