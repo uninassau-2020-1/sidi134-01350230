@@ -19,7 +19,7 @@ import com.br.uati.models.User;
 import com.br.uati.services.UserService;
 
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/users")
 public class UserController {
 	
 	@Autowired
@@ -27,27 +27,21 @@ public class UserController {
 
 	@GetMapping
 	public ResponseEntity<List<User>> findAll() {
-
 		List<User> listaUser = userService.findAll();
-
 		return ResponseEntity.ok().body(listaUser);
 	}
 	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<User> findById(@PathVariable Integer id){
-		
 		User objUser = userService.findById(id);
-		
 		return ResponseEntity.ok().body(objUser);
 	}
 	
 	@PostMapping
 	public ResponseEntity<User> insertUsers(@RequestBody User objUser) {
-
 		objUser = userService.insertUsers(objUser);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(objUser.getId()).toUri();
-		
 		return ResponseEntity.created(uri).body(objUser);
 	}
 	

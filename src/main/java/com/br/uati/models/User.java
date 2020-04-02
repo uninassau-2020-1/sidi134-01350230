@@ -15,27 +15,16 @@ public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
 	private String name;
-	
 	private String email;
-	
 	private String cep;
-	
 	private String complemento;
-	
 	private String logradouro;
-	
 	private String bairro;
-	
 	private String localidade;
-	
 	private String uf;
-	
 	private String unidade;
-	
 	private String ibge;
-	
 	private String gia;
 	
 	public User() {

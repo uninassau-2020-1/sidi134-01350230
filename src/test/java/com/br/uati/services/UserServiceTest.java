@@ -1,7 +1,10 @@
 package com.br.uati.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -11,10 +14,13 @@ import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import com.br.uati.dto.CepDto;
 import com.br.uati.models.User;
 import com.br.uati.repositories.UserRepository;
 
@@ -24,7 +30,7 @@ public class UserServiceTest {
 	UserService userService;
 
 	@Mock
-	UserRepository userRepositoryMock;
+	UserRepository userRepository;
 	
 	private static final Integer ID = 1;
 	private static final String NAME = "MY NAME";
@@ -67,12 +73,11 @@ public class UserServiceTest {
 	@Test
 	public void testar_find_all_users() {
 		List<User> listaUser= new ArrayList<>();
-		
 		listaUser.add(user);
 		
 		List<User> expectedUsers = Arrays.asList(user);
 
-		doReturn(expectedUsers).when(userRepositoryMock).findAll();
+		doReturn(expectedUsers).when(userRepository).findAll();
 
 		// when
 		List<User> actualProducts = userService.findAll();
@@ -84,15 +89,28 @@ public class UserServiceTest {
 	@Test
 	public void testar_find_by_id() {
 		List<User> listaUser= new ArrayList<>();
-
 		listaUser.add(user);
 
-		when(userRepositoryMock.findById(ID)).thenReturn(Optional.of(user));
+		when(userRepository.findById(ID)).thenReturn(Optional.of(user));
 
 		User actualProducts = userService.findById(ID);
 
 		assertThat(actualProducts).isEqualTo(user);
-		
 	}
 
+	@Test
+    public void testar_insert_user() {
+        CepDto cepDto = new CepDto();
+        cepDto.setCep(CEP);
+        BDDMockito.given(userRepository.save(Mockito.any())).willReturn(user);
+        assertEquals(user, userService.insertUsers(user));
+    }
+	
+	@Test
+    public void testar_delete_user() {
+        Optional<User> optionalUser = Optional.of(user);
+        BDDMockito.given(userRepository.findById(1)).willReturn(optionalUser);
+        userService.deleteUser(user.getId());
+        verify(userRepository, times(1)).delete(user);
+    }
 }

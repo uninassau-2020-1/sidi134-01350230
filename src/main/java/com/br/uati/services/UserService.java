@@ -13,24 +13,24 @@ import com.br.uati.repositories.UserRepository;
 
 @Service
 public class UserService {
-	
+
 	private String URL = "https://viacep.com.br/ws/";
-	
+
 	@Autowired
 	private UserRepository userRepository;
-	
-	public List<User> findAll(){
+
+	public List<User> findAll() {
 		return userRepository.findAll();
 	}
-	
+
 	public User findById(Integer id) {
 		Optional<User> objUser = userRepository.findById(id);
 		return objUser.get();
 	}
-	
+
 	public User insertUsers(User objUser) {
 		RestTemplate restTemplate = new RestTemplate();
-		
+
 		CepDto cepDto = restTemplate.getForObject(URL + objUser.getCep() + "/json", CepDto.class);
 		objUser.setLogradouro(cepDto.getLogradouro());
 		objUser.setComplemento(cepDto.getComplemento());
@@ -40,31 +40,35 @@ public class UserService {
 		objUser.setUnidade(cepDto.getUnidade());
 		objUser.setIbge(cepDto.getIbge());
 		objUser.setGia(cepDto.getGia());
-		
+
 		return userRepository.save(objUser);
 	}
-	
+
 	public void deleteUser(Integer id) {
 		userRepository.deleteById(id);
 	}
-	
-	public User updateUser(Integer id, User user) {
+
+	public User updateUser(Integer id, User objUser) {
 		User entity = userRepository.getOne(id);
-		updateDados(entity, user);
+		updateDados(entity, objUser);
 		return userRepository.save(entity);
 	}
 
-	private void updateDados(User entity, User user) {
-		entity.setName(user.getName());
-		entity.setEmail(user.getEmail());
-		entity.setCep(user.getCep());
-		entity.setComplemento(user.getComplemento());
-		entity.setLogradouro(user.getLogradouro());
-		entity.setBairro(user.getBairro());
-		entity.setLocalidade(user.getLocalidade());
-		entity.setUf(user.getUf());
-		entity.setUnidade(user.getUnidade());
-		entity.setGia(user.getGia());
-	}
+	private void updateDados(User entity, User objUser) {
+		entity.setName(objUser.getName());
+		entity.setEmail(objUser.getEmail());
+		entity.setCep(objUser.getCep());
+		
+		RestTemplate restTemplate = new RestTemplate();
 
+		CepDto cepDto = restTemplate.getForObject(URL + objUser.getCep() + "/json", CepDto.class);
+		entity.setLogradouro(cepDto.getLogradouro());
+		entity.setComplemento(cepDto.getComplemento());
+		entity.setBairro(cepDto.getBairro());
+		entity.setLocalidade(cepDto.getLocalidade());
+		entity.setUf(cepDto.getUf());
+		entity.setUnidade(cepDto.getUnidade());
+		entity.setIbge(cepDto.getIbge());
+		entity.setGia(cepDto.getGia());
+	}
 }
