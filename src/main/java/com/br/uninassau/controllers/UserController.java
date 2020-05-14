@@ -1,4 +1,4 @@
-package com.br.uati.controllers;
+package com.br.uninassau.controllers;
 
 import java.net.URI;
 import java.util.List;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.br.uati.models.User;
-import com.br.uati.services.UserService;
+import com.br.uninassau.models.User;
+import com.br.uninassau.services.UserService;
 
 @RestController
 @RequestMapping(value = "/users")

@@ -1,4 +1,4 @@
-package com.br.uati.dto;
+package com.br.uninassau.dto;
 
 //Essa classe vai receber o objeto vindo do serviço https://viacep.com.br/ws/{CEP}/json/
 public class CepDto {

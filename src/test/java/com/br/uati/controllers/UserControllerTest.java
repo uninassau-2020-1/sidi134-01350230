@@ -22,9 +22,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
-import com.br.uati.models.User;
-import com.br.uati.repositories.UserRepository;
-import com.br.uati.services.UserService;
+import com.br.uninassau.models.User;
+import com.br.uninassau.repositories.UserRepository;
+import com.br.uninassau.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @AutoConfigureMockMvc

@@ -1,4 +1,4 @@
-package com.br.uati.models;
+package com.br.uninassau.models;
 
 import java.io.Serializable;
 

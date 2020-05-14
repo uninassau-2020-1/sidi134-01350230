@@ -1,4 +1,4 @@
-package com.br.uati.services;
+package com.br.uninassau.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.br.uati.dto.CepDto;
-import com.br.uati.models.User;
-import com.br.uati.repositories.UserRepository;
+import com.br.uninassau.dto.CepDto;
+import com.br.uninassau.models.User;
+import com.br.uninassau.repositories.UserRepository;
 
 @Service
 public class UserService {

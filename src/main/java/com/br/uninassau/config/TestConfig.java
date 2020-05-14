@@ -1,4 +1,4 @@
-package com.br.uati.config;
+package com.br.uninassau.config;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,8 +9,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.br.uati.models.User;
-import com.br.uati.repositories.UserRepository;
+import com.br.uninassau.models.User;
+import com.br.uninassau.repositories.UserRepository;
 
 @Configuration
 @Profile("test")

@@ -20,9 +20,10 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import com.br.uati.dto.CepDto;
-import com.br.uati.models.User;
-import com.br.uati.repositories.UserRepository;
+import com.br.uninassau.dto.CepDto;
+import com.br.uninassau.models.User;
+import com.br.uninassau.repositories.UserRepository;
+import com.br.uninassau.services.UserService;
 
 public class UserServiceTest {
 	
