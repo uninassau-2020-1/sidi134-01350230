@@ -9,6 +9,8 @@ public class DadosMunicipiosDto {
 	
 	private Long somaTotalDomiciliosParticulares;
 	private Long totalDomiciliosParticularesOcupados;
+	private Long totalDomiciliosParticularesNaoOcupados;
+	private double percentualDomiciliosParticularesOcupados;
 	private double percentualDomiciliosParticularesDesocupados;
 	@JsonProperty(value = "dados_municipios")
 	private List<DadosMunicipios> lista;
@@ -47,6 +49,22 @@ public class DadosMunicipiosDto {
 
 	public void setPercentualDomiciliosParticularesDesocupados(double percentualDomiciliosParticularesDesocupados) {
 		this.percentualDomiciliosParticularesDesocupados = percentualDomiciliosParticularesDesocupados;
+	}
+	
+	public double getPercentualDomiciliosParticularesOcupados() {
+		return percentualDomiciliosParticularesOcupados;
+	}
+
+	public void setPercentualDomiciliosParticularesOcupados(double percentualDomiciliosParticularesOcupados) {
+		this.percentualDomiciliosParticularesOcupados = percentualDomiciliosParticularesOcupados;
+	}
+	
+	public Long getTotalDomiciliosParticularesNaoOcupados() {
+		return totalDomiciliosParticularesNaoOcupados;
+	}
+
+	public void setTotalDomiciliosParticularesNaoOcupados(Long totalDomiciliosParticularesNaoOcupados) {
+		this.totalDomiciliosParticularesNaoOcupados = totalDomiciliosParticularesNaoOcupados;
 	}
 
 	public List<DadosMunicipios> getLista() {

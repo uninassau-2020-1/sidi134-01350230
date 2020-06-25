@@ -27,6 +27,11 @@ public class UserService {
 		Optional<User> objUser = userRepository.findById(id);
 		return objUser.get();
 	}
+	
+	public User findByCep(String cep) {
+		Optional<User> objUser = userRepository.findByCep(cep);
+		return objUser.get();
+	}
 
 	public User insertUsers(User objUser) {
 		RestTemplate restTemplate = new RestTemplate();

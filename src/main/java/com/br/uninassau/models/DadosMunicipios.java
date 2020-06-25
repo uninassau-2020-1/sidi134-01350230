@@ -21,16 +21,19 @@ public class DadosMunicipios {
 	private Integer totalDomiciliosColetivos;
 	private Integer totalDomiciliosColetivosComMorador;
 	private Integer totalDomiciliosColetivosSemMorador;
+	private double percentualDomiciliosParticularesOcupados;
+	private double percentualDomiciliosParticularesDesocupados;
 	
 	public DadosMunicipios () {
 		
-	};
+	};	
 	
 	public DadosMunicipios(Integer id, String nomeMunicipio, Integer totalDomiciliosParticularesOcupados,
 			Integer totalDomiciliosParticularesNaoOcupados, Integer totalDomiciliosParticularesNaoOcupadosOcasional,
 			Integer totalDomiciliosParticularesNaoOcupadosVagos, Integer totalDomiciliosParticulares,
 			Integer totalDomiciliosColetivos, Integer totalDomiciliosColetivosComMorador,
-			Integer totalDomiciliosColetivosSemMorador) {
+			Integer totalDomiciliosColetivosSemMorador, double percentualDomiciliosParticularesOcupados,
+			double percentualDomiciliosParticularesDesocupados) {
 		super();
 		this.id = id;
 		this.nomeMunicipio = nomeMunicipio;
@@ -42,9 +45,10 @@ public class DadosMunicipios {
 		this.totalDomiciliosColetivos = totalDomiciliosColetivos;
 		this.totalDomiciliosColetivosComMorador = totalDomiciliosColetivosComMorador;
 		this.totalDomiciliosColetivosSemMorador = totalDomiciliosColetivosSemMorador;
+		this.percentualDomiciliosParticularesOcupados = percentualDomiciliosParticularesOcupados;
+		this.percentualDomiciliosParticularesDesocupados = percentualDomiciliosParticularesDesocupados;
 	}
-	
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -104,6 +108,22 @@ public class DadosMunicipios {
 	}
 	public void setTotalDomiciliosColetivosSemMorador(Integer totalDomiciliosColetivosSemMorador) {
 		this.totalDomiciliosColetivosSemMorador = totalDomiciliosColetivosSemMorador;
+	}
+
+	public double getPercentualDomiciliosParticularesOcupados() {
+		return percentualDomiciliosParticularesOcupados;
+	}
+
+	public void setPercentualDomiciliosParticularesOcupados(double percentualDomiciliosParticularesOcupados) {
+		this.percentualDomiciliosParticularesOcupados = percentualDomiciliosParticularesOcupados;
+	}
+
+	public double getPercentualDomiciliosParticularesDesocupados() {
+		return percentualDomiciliosParticularesDesocupados;
+	}
+
+	public void setPercentualDomiciliosParticularesDesocupados(double percentualDomiciliosParticularesDesocupados) {
+		this.percentualDomiciliosParticularesDesocupados = percentualDomiciliosParticularesDesocupados;
 	}
 
 }

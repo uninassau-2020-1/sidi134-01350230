@@ -37,6 +37,12 @@ public class UserController {
 		return ResponseEntity.ok().body(objUser);
 	}
 	
+	@GetMapping(value = "/cep/{cep}")
+	public ResponseEntity<User> findById(@PathVariable String cep){
+		User objUser = userService.findByCep(cep);
+		return ResponseEntity.ok().body(objUser);
+	}
+	
 	@PostMapping
 	public ResponseEntity<User> insertUsers(@RequestBody User objUser) {
 		objUser = userService.insertUsers(objUser);
